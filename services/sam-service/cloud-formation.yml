@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: The AWS CloudFormation template for this Serverless application - using SAM
+Transform: 'AWS::Serverless-2016-10-31'
+Resources:
+  MyFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Runtime: nodejs8.10
+      Handler: handler.query
+      CodeUri: handler.js
+      Events:
+        MyApi:
+            Type: Api
+            Properties:
+                Path: /myApi
+                Method: GET
